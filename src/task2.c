@@ -144,7 +144,16 @@ void afisare_coada ( piata* s1 , piata* s2 , piata* s3 , oportunitati* c , int a
 {
     FILE *fo = fopen(argv[2], "wt");
     if (fo == NULL) exit(1);
-    
+    if (c->fata == NULL )
+    {
+        printf("coada e goala");
+    }
+    nod* elem_coada = c->fata;
+    while( elem_coada != NULL )
+    {
+        fprintf (fo , "ziua %d - %d - %s \n",   elem_coada->zi ,    elem_coada->dif_piata   ,  elem_coada->nume_piata   );
+        elem_coada = elem_coada->next;
+    }
     stergere_coada(c);
     stergere_stiva(s1);
     stergere_stiva(s2);
