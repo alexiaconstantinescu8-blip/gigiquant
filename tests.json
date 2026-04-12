@@ -1,7 +1,6 @@
-// EXAMPLE MODULE CONFIG --- CHANGE LATER
+
 {
     "temp_path": "./.checker_temp",
-    // Please avoid cyclic macros
     "macros": {},
     "tests": [
         {
@@ -204,7 +203,7 @@
         ],
         "output_dependent": true,
         "maxWarnings": 20,
-        "maxLeak": 100, // MB
+        "maxLeak": 100, 
         "grade": 0.2
     },
     "style_checker": {

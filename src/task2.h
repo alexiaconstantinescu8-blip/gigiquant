@@ -6,14 +6,14 @@ struct vector_stiva
 {
     int top;
     int capacitate;
-    int *pret;
+    float *pret;
     char nume_piata[30];//oras
 };
 typedef struct vector_stiva piata;
 struct lista_coada
 {
     int zi;
-    int dif_piata;
+    float dif_piata;
     char nume_piata[30];
     struct lista_coada* next;
 };
@@ -25,17 +25,17 @@ struct Q
 typedef struct Q oportunitati;
 piata* creaza_stiva (int n);
 void stergere_stiva ( piata** s);
-int isFull( piata*  s );
+int isFull( const piata*  s );
 int isEmpty_stiva ( piata*  s);
-void crestere_capacitatea(  piata* s );
-void push ( piata *s, int x);
-void citire_stive(piata* s, int argc, char *argv[]);
-int nr_min_stiva ( piata* s1 , piata* s2 , piata* s3 , int mini );
+void crestere_capacitatea( piata* s );
+void push ( piata *s, float x);
+void citire_stive(piata* s1 , piata* s2,piata* s3,int argc, char *argv[]);
+int nr_min_stiva ( const piata* s1 , const piata* s2 , const piata* s3 );
 oportunitati* creaaza_coada();
-void adaugare_elemente ( oportunitati* q, int dif_piata, int ziua , char nume_p[] );
-int isEmpty_coada ( oportunitati *q);
+void adaugare_elemente ( oportunitati* q, float dif_piata, int ziua , const char nume_p[] );
+int isEmpty_coada ( const oportunitati *q);
 void stergere_coada ( oportunitati *q);
-void oportunitatile_din_piata ( piata* s1 , piata* s2 , piata* s3 , oportunitati* c , int *nr_coada);
+void oportunitatile_din_piata ( piata* s1 , piata* s2 , piata* s3 , oportunitati* c);
 void afisare_coada ( piata* s1 , piata* s2 , piata* s3 , oportunitati* c , int argc, char *argv[] );
 
 

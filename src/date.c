@@ -4,9 +4,8 @@
 #include <math.h>
 node* crearelista(int *n, int argc, char *argv[])
 {   //am facut afisarea variabilelor cerute si crearea listei in aceeasi functie pentru ca fisierele sa fie accesate intr-o singura functie,desi putea sa le dau ca argumente si in restul functiilor
-    FILE *fi = fopen(argv[1], "rt");
-    FILE *fo = fopen(argv[2], "wt");
-    if (fi == NULL || fo == NULL) exit(1);
+     FILE *fi = fopen(argv[1], "rt");
+     FILE *fo = fopen(argv[2], "wt");
     fscanf(fi, "%d", n);
     node* e1 = (node*)malloc(sizeof(node));
     if (e1 == NULL)//in cazul in care alocarea dinamica a esuat , mai bn sa fiu anuntata si sa mi iasa din program ,decat sa ruleze degeaba

@@ -16,7 +16,7 @@ vpath %.c $(SOURCE_DIRS)
 all: $(BIN)
 
 $(BIN): $(notdir $(OBJECTS))
-	$(CC) $(CFLAGS) $(LDFLAGS) $(addprefix, -I, $(SOURCE_DIRS)) $(addprefix $(BUILD_DIR)/, $^) -o $(BIN)
+	$(CC) $(CFLAGS) $(addprefix, -I, $(SOURCE_DIRS)) $(addprefix $(BUILD_DIR)/, $^) -o $(BIN) $(LDFLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(LDFLAGS) $(addprefix, -I, $(SOURCE_DIRS)) -c $< -o $(BUILD_DIR)/$@ 
