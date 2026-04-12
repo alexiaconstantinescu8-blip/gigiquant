@@ -53,7 +53,7 @@ void citire_stive(piata* s, int argc, char *argv[])
     {
         push(s,val);
     }
-
+    fclose(fi);
 }
 int nr_min_stiva ( piata* s1 , piata* s2 , piata* s3 , int mini )
 {
@@ -113,7 +113,7 @@ void stergere_coada ( oportunitati *q)
     free (q);
 }
 
-void oportunitatile_din_piata ( piata* s1 , piata* s2 , piata* s3 , oportunitati* c )
+void oportunitatile_din_piata ( piata* s1 , piata* s2 , piata* s3 , oportunitati* c , int *nr_coada)
 {
    int mini = nr_min_stiva(s1,s2,s3,mini);
    int i;
@@ -121,13 +121,33 @@ void oportunitatile_din_piata ( piata* s1 , piata* s2 , piata* s3 , oportunitati
    {
      if( s1->pret[i] == s2->pret[i] && s1->pret[i] != s3->pret[i] )
         {
-            int dif_piata =   s1->pret[i] -   s3->pret[i];
+            int dif_piata =   s1->pret[i] - s3->pret[i];
             adaugare_elemente(c,dif_piata,i,s3->nume_piata);
+            (*nr_coada)++;
+        }
+    if( s1->pret[i] == s3->pret[i] && s1->pret[i] != s2->pret[i] )
+        {
+            int dif_piata =   s1->pret[i] - s2->pret[i];
+            adaugare_elemente(c,dif_piata,i,s2->nume_piata);
+            (*nr_coada)++;
+        }
+    if( s3->pret[i] == s2->pret[i] && s3->pret[i] != s1->pret[i] )
+        {
+            int dif_piata =   s3->pret[i] - s1->pret[i];
+            adaugare_elemente(c,dif_piata,i,s1->nume_piata);
+            (*nr_coada)++;
         }
      
    }
 }
 void afisare_coada ( piata* s1 , piata* s2 , piata* s3 , oportunitati* c , int argc, char *argv[] )
 {
+    FILE *fo = fopen(argv[2], "wt");
+    if (fo == NULL) exit(1);
     
+    stergere_coada(c);
+    stergere_stiva(s1);
+    stergere_stiva(s2);
+    stergere_stiva(s3);
+    fclose(fo);
 }
