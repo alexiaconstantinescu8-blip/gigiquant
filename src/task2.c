@@ -22,7 +22,7 @@ int isFull( piata*  s )
 {
     return (s->top + 1 == s->capacitate);
 }
-int isEmpty(    piata*  s)
+int isEmpty_stiva ( piata*  s)
 {
     return  ( s->top == -1 );
 }
@@ -97,14 +97,14 @@ void adaugare_elemente ( oportunitati* q, int dif_piata, int ziua , char nume_p[
          }
     if (q->fata == NULL ) q->fata = q->spate ;
 }
-int isEmpty ( oportunitati *q)
+int isEmpty_coada ( oportunitati *q)
 {
     return (q->fata == NULL ); 
 }
 void stergere_coada ( oportunitati *q)
 {   
     nod* aux ;
-    while (! isEmpty (q))
+    while (! isEmpty_coada (q))
         {
              aux =q->fata ;
              q->fata = q->fata->next ;
