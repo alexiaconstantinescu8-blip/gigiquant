@@ -21,29 +21,39 @@ Graph * creare_graf(int v)
 {
     Graph *g = (Graph *) malloc(sizeof(Graph)); 
     g->V = v;
-    g->a = (int **) malloc(g->V * sizeof(int *));
+    g->matrice=(nod_graf**)malloc(g->V *sizeof(nod_graf*));
+    for (int i = 0; i < g->V; i++)
+        g->matrice[i] = NULL;
+    //Facusem initial cu matrici
+    /*
     g->numaratori = (int **) malloc(g->V * sizeof(int *));
     g->numitori = (int **) malloc(g->V * sizeof(int *));
-    for (int i = 0; i < g->V; i++)
-        g->a[i] = (int *) calloc(g->V, sizeof(int));
     for (int i = 0; i < g->V; i++)
         g->numaratori[i] = (int *) calloc(g->V, sizeof(int));
     for (int i = 0; i < g->V; i++)
         g->numitori[i] = (int *) calloc(g->V, sizeof(int));
-   
+   */
     g->E = 0;
     return g;
 }
 void eliberare_graf(Graph *g) {
     if (g == NULL) return;
-    for (int i = 0; i < g->V; i++) {
-        free(g->a[i]);
-        free(g->numaratori[i]);
-        free(g->numitori[i]);
+    for (int i = 0; i < g->V; i++) 
+    {
+        nod_graf* aux = g->matrice[i];
+        while(aux != NULL)
+        {
+            nod_graf* temp =aux;
+            aux=aux->next;
+            free(temp);
+        }
+        /*free(g->numaratori[i]);
+        free(g->numitori[i]);*/
     }
-    free(g->a);
+    free(g->matrice);
+    /*
     free(g->numaratori);
-    free(g->numitori);
+    free(g->numitori);*/
     free(g);
 }
 void aflare_max(float *maxim,const float preturi[], int N)//aflam maximul pt afla nr de noduri
@@ -79,6 +89,58 @@ Graph* populare_graf(int N,float preturi[], Graph *g, float d, int argc, char *a
     while (p_target < pret_minim) pret_minim=(int)p_target;
     int v = (int)((maxim - pret_minim) / d) + 1;
     g = creare_graf(v);
+    //Punerea muchiilor
+    for(int i = 0 ; i < N-1 ; i++)
+    {
+        int poz1 = (int)((preturi[i] - pret_minim) / d);
+        int poz2 = (int)((preturi[i+1] - pret_minim) / d);
+        nod_graf *aux = g->matrice[poz1];
+        int gasit = 0;
+        //Verificam daca muchia deja exista
+        while(aux != NULL)
+        {
+            if(aux->destinatie == poz2)
+            {
+                aux->numarator++;
+                gasit=1;
+                break;
+            }
+            aux=aux->next;
+        }
+        if( gasit == 0)
+        {
+            nod_graf* nod_nou=(nod_graf*)malloc(sizeof(nod_graf));
+            nod_nou->destinatie = poz2;
+            nod_nou->numarator = 1;
+            nod_nou->numitor = 1;
+            nod_nou->next = g->matrice[poz1];
+            g->matrice[poz1] = nod_nou;
+        }
+    }
+    //aflare numitor si numarator
+    for(int i = 0 ; i < g->V  ; i++)
+    {
+        int nr_muchii = 0;
+        nod_graf *aux = g->matrice[i];
+        while(aux != NULL)
+        {
+            nr_muchii += aux->numarator;
+            aux=aux->next;
+        }
+        aux = g->matrice[i];
+        while(aux != NULL)
+        {
+             if(nr_muchii == 0)
+            {
+               aux->numitor= 1; 
+            }
+           else aux->numitor = nr_muchii;
+            aux=aux->next;
+        }
+
+    }
+    //varianta cu matrice
+    /*
     for(int i = 0; i < N-1; i++)
     {
         int poz1 = (int)((preturi[i] - pret_minim) / d);
@@ -100,7 +162,7 @@ Graph* populare_graf(int N,float preturi[], Graph *g, float d, int argc, char *a
             }
            else g->numitori[i][j] = nr_muchii;//cazuri favorabile
         }
-    }
+    }*/
     return g;
 }
 long long cmmdc(long long a, long long b) {
@@ -120,7 +182,7 @@ void probabilitati(int argc, char *argv[])
     FILE *fo = fopen(argv[2], "wt");
     int N, zile;
     float d, p_target, p_start;
-    float *preturi = (float*)malloc(1000000 * sizeof(float));
+    float *preturi = (float*)malloc(10 * sizeof(float));
     Graph *g = NULL;
     citire_date(argc, argv, &N, &d, &zile, &p_start, &p_target, preturi);
     g = populare_graf(N, preturi, g, d, argc, argv);
@@ -180,6 +242,22 @@ void probabilitati(int argc, char *argv[])
         {
             if (numarator_curent[i] != 0) //daca numitoru e 0 nu mai merge
             {
+                nod_graf* vecin = g->matrice[i];
+                while( vecin != NULL)
+                {
+                    int j = vecin->destinatie;
+                        //regula de baza : probabilitatea nodului=probabilitatea veche*probabilitatea din graf a lui(cea initiala)//asta cand intra in el+suma din (probabilitatea initiala(din graf)de la vecin la nodul acesta*probabilitatea vecinului din ziua trecuta)
+                        //luam vecini care "intra in el"(adc exista muchie de la vecin la nodul caruia ii fac probabilitatea)
+                        //i e vecinu,j e nodul pentru care calculam
+                        //luam long lonmg pt ca pot da numere mari
+                        long long suma_numarator = numarator_urmator[j] * (numitor_curent[i] * vecin->numitor) + (numarator_curent[i] * vecin->numarator)* numitor_urmator[j];//suma numaratorilor,am adus direct la acelas numitor
+                        long long numitor_probab = numitor_urmator[j] * (numitor_curent[i] * vecin->numitor);//aducem la acelas numitor
+                        long long simplificare = cmmdc(suma_numarator, numitor_probab);//pt aduce la o forma ireductibila
+                        numarator_urmator[j] = suma_numarator / simplificare;
+                        numitor_urmator[j] = numitor_probab / simplificare;
+                    vecin=vecin->next;
+                }
+                /*
                 for(int j = 0; j < g->V; j++)
                 {
                     if(g->numaratori[i][j] != 0) //daca numitoru e 0 nu mai merge
@@ -195,6 +273,7 @@ void probabilitati(int argc, char *argv[])
                         numitor_urmator[j] = numitor_probab / simplificare;
                     }
                 }
+                    */
             }
         }
         //trecem la urmatoarea zi
