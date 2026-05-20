@@ -83,19 +83,22 @@ Graph* populare_graf(int N,float preturi[], Graph *g, float d, int argc, char *a
     {
         int poz1 = (int)((preturi[i] - pret_minim) / d);
         int poz2 = (int)((preturi[i+1] - pret_minim) / d);
-        g->a[poz1][poz2]++;//numaram muchiile intre 2 valori
+        g->numaratori[poz1][poz2]++;//numaram muchiile intre 2 valori
     }
     for(int i = 0; i < g->V; i++)
     {
         int nr_muchii = 0;
         for(int j = 0; j < g->V; j++) 
         {
-            nr_muchii += g->a[i][j];//aflam gradul lui i,adc cate muchii sunt"conectate" la el
+            nr_muchii += g->numaratori[i][j];//aflam gradul lui i,adc cate muchii sunt"conectate" la el
         }
         for(int j = 0; j < g->V; j++)
         {
-           g->numaratori[i][j] = g->a[i][j];
-           g->numitori[i][j] = nr_muchii;
+            if(nr_muchii == 0)
+            {
+               g->numitori[i][j] = 1; 
+            }
+           else g->numitori[i][j] = nr_muchii;//cazuri favorabile
         }
     }
     return g;
