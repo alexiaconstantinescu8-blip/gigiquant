@@ -1,6 +1,7 @@
-
+// EXAMPLE MODULE CONFIG --- CHANGE LATER
 {
     "temp_path": "./.checker_temp",
+    // Please avoid cyclic macros
     "macros": {},
     "tests": [
         {
@@ -10,7 +11,8 @@
                 "$IN_DIR/data1.in",
                 "$OUT"
             ],
-            "score": 6
+            "score": 3,
+            "timeout": 20
         },
         {
             "displayName": "data2",
@@ -19,7 +21,8 @@
                 "$IN_DIR/data2.in",
                 "$OUT"
             ],
-            "score": 6
+            "score": 3,
+            "timeout": 20
         },
         {
             "displayName": "data3",
@@ -28,7 +31,8 @@
                 "$IN_DIR/data3.in",
                 "$OUT"
             ],
-            "score": 6
+            "score": 3,
+            "timeout": 20
         },
         {
             "displayName": "data4",
@@ -37,7 +41,8 @@
                 "$IN_DIR/data4.in",
                 "$OUT"
             ],
-            "score": 6
+            "score": 3,
+            "timeout": 20
         },
         {
             "displayName": "data5",
@@ -46,7 +51,8 @@
                 "$IN_DIR/data5.in",
                 "$OUT"
             ],
-            "score": 6
+            "score": 3,
+            "timeout": 20
         },
         {
             "displayName": "data6",
@@ -55,7 +61,8 @@
                 "$IN_DIR/data6.in",
                 "$OUT"
             ],
-            "score": 6
+            "score": 4,
+            "timeout": 20
         },
         {
             "displayName": "data7",
@@ -64,7 +71,8 @@
                 "$IN_DIR/data7.in",
                 "$OUT"
             ],
-            "score": 6
+            "score": 4,
+            "timeout": 20
         },
         {
             "displayName": "data8",
@@ -73,7 +81,8 @@
                 "$IN_DIR/data8.in",
                 "$OUT"
             ],
-            "score": 6
+            "score": 4,
+            "timeout": 20
         },
         {
             "displayName": "data9",
@@ -82,7 +91,8 @@
                 "$IN_DIR/data9.in",
                 "$OUT"
             ],
-            "score": 6
+            "score": 4,
+            "timeout": 20
         },
         {
             "displayName": "data10",
@@ -91,7 +101,8 @@
                 "$IN_DIR/data10.in",
                 "$OUT"
             ],
-            "score": 6
+            "score": 4,
+            "timeout": 20
         },
         {
             "displayName": "data11",
@@ -100,7 +111,8 @@
                 "$IN_DIR/data11.in",
                 "$OUT"
             ],
-            "score": 8
+            "score": 6,
+            "timeout": 20
         },
         {
             "displayName": "data12",
@@ -109,7 +121,8 @@
                 "$IN_DIR/data12.in",
                 "$OUT"
             ],
-            "score": 8
+            "score": 6,
+            "timeout": 20
         },
         {
             "displayName": "data13",
@@ -118,7 +131,8 @@
                 "$IN_DIR/data13.in",
                 "$OUT"
             ],
-            "score": 8
+            "score": 6,
+            "timeout": 20
         },
         {
             "displayName": "data14",
@@ -127,7 +141,8 @@
                 "$IN_DIR/data14.in",
                 "$OUT"
             ],
-            "score": 8
+            "score": 6,
+            "timeout": 20
         },
         {
             "displayName": "data15",
@@ -136,52 +151,58 @@
                 "$IN_DIR/data15.in",
                 "$OUT"
             ],
-            "score": 8
+            "score": 6,
+            "timeout": 20
         },
-                {
+        {
             "displayName": "data16",
             "file": "data16",
             "args": [
                 "$IN_DIR/data16.in",
                 "$OUT"
             ],
-            "score": 8
+            "score": 7,
+            "timeout": 20
         },
-                {
+        {
             "displayName": "data17",
             "file": "data17",
             "args": [
                 "$IN_DIR/data17.in",
                 "$OUT"
             ],
-            "score": 8
+            "score": 7,
+            "timeout": 20
         },
-                {
+        {
             "displayName": "data18",
             "file": "data18",
             "args": [
                 "$IN_DIR/data18.in",
                 "$OUT"
             ],
-            "score": 8
+            "score": 7,
+            "timeout": 20
         },
-                {
+        {
             "displayName": "data19",
             "file": "data19",
             "args": [
                 "$IN_DIR/data19.in",
                 "$OUT"
             ],
-            "score": 8
+            "score": 7,
+            "timeout": 20
         },
-                {
+        {
             "displayName": "data20",
             "file": "data20",
             "args": [
                 "$IN_DIR/data20.in",
                 "$OUT"
             ],
-            "score": 8
+            "score": 7,
+            "timeout": 20
         }
     ],
     "ref_checker": {
@@ -203,7 +224,7 @@
         ],
         "output_dependent": true,
         "maxWarnings": 20,
-        "maxLeak": 100, 
+        "maxLeak": 100, // MB
         "grade": 0.2
     },
     "style_checker": {

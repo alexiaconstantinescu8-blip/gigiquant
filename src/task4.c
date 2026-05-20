@@ -1,0 +1,211 @@
+#include "task4.h"
+#include <stdlib.h>
+#include <stdio.h>
+void citire_date(int argc,const char *argv[], int *N, float *d, int *zile, float *p_start, float *p_target,float preturi[])
+{
+    FILE *fi = fopen(argv[1], "rt");
+    if (fi == NULL) exit(1);
+    fscanf(fi, "%d", N);
+    fscanf(fi, "%f", d);
+    fscanf(fi, "%d", zile);
+    fscanf(fi, "%f", p_start);
+    fscanf(fi, "%f", p_target);
+    for(int i = 0; i <= (*N); i++)
+    {
+        fscanf(fi, "%f", &preturi[i]);
+    }
+    fclose(fi);
+}
+//am luat un numarator si un numitor separat ,pt a scrie sub forma de fractie
+Graph * creare_graf(int v)
+{
+    Graph *g = (Graph *) malloc(sizeof(Graph)); 
+    g->V = v;
+    g->a = (int **) malloc(g->V * sizeof(int *));
+    g->numaratori = (int **) malloc(g->V * sizeof(int *));
+    g->numitori = (int **) malloc(g->V * sizeof(int *));
+    for (int i = 0; i < g->V; i++)
+        g->a[i] = (int *) calloc(g->V, sizeof(int));
+    for (int i = 0; i < g->V; i++)
+        g->numaratori[i] = (int *) calloc(g->V, sizeof(int));
+    for (int i = 0; i < g->V; i++)
+        g->numitori[i] = (int *) calloc(g->V, sizeof(int));
+   
+    g->E = 0;
+    return g;
+}
+void eliberare_graf(Graph *g) {
+    if (g == NULL) return;
+    for (int i = 0; i < g->V; i++) {
+        free(g->a[i]);
+        free(g->numaratori[i]);
+        free(g->numitori[i]);
+    }
+    free(g->a);
+    free(g->numaratori);
+    free(g->numitori);
+    free(g);
+}
+void aflare_max(float *maxim,const float preturi[], int N)//aflam maximul pt afla nr de noduri
+{
+    *maxim = preturi[0];
+    for(int i = 1; i < N; i++)
+    {
+        if(*maxim < preturi[i]) *maxim = preturi[i];
+    }
+}
+void aflare_minim(float *minim,const float preturi[], int N)//aflam minimul pt afla nr de noduri si pozitiilor din graf numerelor din interval
+{
+    *minim = preturi[0];
+    for(int i = 1; i < N; i++)
+    {
+        if(*minim > preturi[i]) *minim = preturi[i];
+    }
+}
+Graph* populare_graf(int N,float preturi[], Graph *g, float d, int argc, char *argv[])
+{
+    int zile;
+    float p_target, p_start;
+    citire_date(argc, argv, &N, &d, &zile, &p_start, &p_target, preturi);
+    float minim, maxim;
+    aflare_max(&maxim, preturi, N);
+    aflare_minim(&minim, preturi, N);
+    //p start si target nu se afla in vector,dar le folosim pt probabilitati,respectiv in graf daca din sunt intervale neexistente in preturi
+    if (p_target > maxim) maxim = p_target;
+    if (p_start > maxim) maxim = p_start;
+    //folosim int pt o aproximare a pozitie mai buna,sa nu fie pb cu zecimalele
+    int pret_minim = (int)minim;
+    while (p_start < pret_minim) pret_minim=(int)p_start;
+    while (p_target < pret_minim) pret_minim=(int)p_target;
+    int v = (int)((maxim - pret_minim) / d) + 1;
+    g = creare_graf(v);
+    for(int i = 0; i < N-1; i++)
+    {
+        int poz1 = (int)((preturi[i] - pret_minim) / d);
+        int poz2 = (int)((preturi[i+1] - pret_minim) / d);
+        g->a[poz1][poz2]++;//numaram muchiile intre 2 valori
+    }
+    for(int i = 0; i < g->V; i++)
+    {
+        int nr_muchii = 0;
+        for(int j = 0; j < g->V; j++) 
+        {
+            nr_muchii += g->a[i][j];//aflam gradul lui i,adc cate muchii sunt"conectate" la el
+        }
+        for(int j = 0; j < g->V; j++)
+        {
+           g->numaratori[i][j] = g->a[i][j];
+           g->numitori[i][j] = nr_muchii;
+        }
+    }
+    return g;
+}
+long long cmmdc(long long a, long long b) {
+  if(a<0) a=a*(-1);
+  if(b<0) b=b*(-1);
+  if(a==0)return a;
+  if(b==0)return b;
+  while(a!=b)
+  {
+    if(a>b) a=a-b;
+    else b=b-a;
+  }
+  return a;
+}
+void probabilitati(int argc, char *argv[])
+{
+    FILE *fo = fopen(argv[2], "wt");
+    int N, zile;
+    float d, p_target, p_start;
+    float *preturi = (float*)malloc(1000000 * sizeof(float));
+    Graph *g = NULL;
+    citire_date(argc, argv, &N, &d, &zile, &p_start, &p_target, preturi);
+    g = populare_graf(N, preturi, g, d, argc, argv);
+    long long* numitor_curent = (long long*)calloc(g->V, sizeof(long long));
+    long long* numarator_curent = (long long*)calloc(g->V, sizeof(long long));
+    long long* numitor_urmator = (long long*)calloc(g->V, sizeof(long long));
+    long long* numarator_urmator = (long long*)calloc(g->V, sizeof(long long));
+    float minim;
+    aflare_minim(&minim, preturi, N);
+    //folosim int pt o aproximare a pozitie mai buna,sa nu fie pb cu zecimalele
+    int pret_minim = (int)minim;
+    while (p_start < pret_minim) pret_minim=(int)p_start;
+    while (p_target < pret_minim) pret_minim=(int)p_target;
+    for(int i = 0; i < g->V; i++) {
+        numarator_curent[i] = 0;
+        numitor_curent[i] = 1;
+    }
+    int pozitie_start = (int)((p_start - pret_minim) / d);
+    //ZIUA 0,pornim din p_start ,unde probabilitatile suntr de 1
+    if(pozitie_start >= 0 && pozitie_start < g->V) {
+        numarator_curent[pozitie_start] = 1;
+        numitor_curent[pozitie_start] = 1;
+    }
+    int pozitie_target = (int)((p_target - pret_minim) / d);
+    for(int zi_curent = 0; zi_curent < zile; zi_curent++)
+    {
+        //facem afisarea inainte pt a afisa ziua 0
+        if(pozitie_target >= 0 && pozitie_target < g->V) 
+        {
+            if (numarator_curent[pozitie_target] == 0) //daca numarator e 0 sa afiseze direct 0 fara "/""
+            {
+                fprintf(fo, "0");
+            }
+            else if(numitor_curent[pozitie_target] == 1 )//daca numitoru e 1 sa afiseze direct 0 fara "/""
+            {   
+                fprintf(fo, "%lld", numarator_curent[pozitie_target]);
+            }
+            else //daca nu sunt pb de mai sus sa se afiseze asa cum e
+            {
+                fprintf(fo, "%lld/%lld", numarator_curent[pozitie_target], numitor_curent[pozitie_target]);
+            }
+        } 
+        else //daca pozitia e negeativa,sau e mai mare ca nr de noduri(adc nu se afla in graf),proabilitatea e 0 sa ajungi la ea
+        {
+            fprintf(fo, "0");
+        }
+        //daca nu e ultima zi sa puna enteru,ca sa nu mai punem un enter in plus
+        if (zi_curent < zile - 1) {
+            fprintf(fo, "\n");
+        }
+        //incepem sa calculam pt ziua urmatoare probabilitatea
+        for(int i = 0; i < g->V; i++) {
+            numarator_urmator[i] = 0;
+            numitor_urmator[i] = 1;//numitoru nu are voie sa fie 0
+        }
+        for(int i = 0; i < g->V; i++)
+        {
+            if (numarator_curent[i] != 0) //daca numitoru e 0 nu mai merge
+            {
+                for(int j = 0; j < g->V; j++)
+                {
+                    if(g->numaratori[i][j] != 0) //daca numitoru e 0 nu mai merge
+                    {
+                        //regula de baza : probabilitatea nodului=probabilitatea veche*probabilitatea din graf a lui(cea initiala)//asta cand intra in el+suma din (probabilitatea initiala(din graf)de la vecin la nodul acesta*probabilitatea vecinului din ziua trecuta)
+                        //luam vecini care "intra in el"(adc exista muchie de la vecin la nodul caruia ii fac probabilitatea)
+                        //i e vecinu,j e nodul pentru care calculam
+                        //luam long lonmg pt ca pot da numere mari
+                        long long suma_numarator = numarator_urmator[j] * (numitor_curent[i] * g->numitori[i][j]) + (numarator_curent[i] * g->numaratori[i][j])* numitor_urmator[j];//suma numaratorilor,am adus direct la acelas numitor
+                        long long numitor_probab = numitor_urmator[j] * (numitor_curent[i] * g->numitori[i][j]);//aducem la acelas numitor
+                        long long simplificare = cmmdc(suma_numarator, numitor_probab);//pt aduce la o forma ireductibila
+                        numarator_urmator[j] = suma_numarator / simplificare;
+                        numitor_urmator[j] = numitor_probab / simplificare;
+                    }
+                }
+            }
+        }
+        //trecem la urmatoarea zi
+        for(int i = 0; i < g->V; i++) 
+        {
+            numarator_curent[i] = numarator_urmator[i];
+            numitor_curent[i] = numitor_urmator[i];
+        }
+    }
+    fclose(fo);
+    free(numitor_curent);
+    free(numarator_curent);
+    free(numitor_urmator);
+    free(numarator_urmator);
+    free(preturi);
+    eliberare_graf(g);
+}

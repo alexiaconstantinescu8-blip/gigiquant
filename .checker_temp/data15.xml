@@ -9,11 +9,11 @@
   <line>Memcheck, a memory error detector</line>
   <line>Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.</line>
   <line>Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info</line>
-  <line>Command: /home/cristi/Desktop/Facultate/PA/Tema/gigiquant/test /home/cristi/Desktop/Facultate/PA/Tema/gigiquant/in/data15.in /home/cristi/Desktop/Facultate/PA/Tema/gigiquant/out/data15.out</line>
+  <line>Command: /home/lexia/PA/project-data-main/gigiquant/test /home/lexia/PA/project-data-main/gigiquant/in/data15.in /home/lexia/PA/project-data-main/gigiquant/out/data15.out</line>
 </preamble>
 
-<pid>105341</pid>
-<ppid>105307</ppid>
+<pid>67060</pid>
+<ppid>67039</ppid>
 <tool>memcheck</tool>
 
 <args>
@@ -21,24 +21,24 @@
     <exe>/usr/bin/valgrind.bin</exe>
     <arg>--leak-check=yes</arg>
     <arg>--xml=yes</arg>
-    <arg>--xml-file=/home/cristi/Desktop/Facultate/PA/Tema/gigiquant/.checker_temp/data15.xml</arg>
+    <arg>--xml-file=/home/lexia/PA/project-data-main/gigiquant/.checker_temp/data15.xml</arg>
   </vargv>
   <argv>
-    <exe>/home/cristi/Desktop/Facultate/PA/Tema/gigiquant/test</exe>
-    <arg>/home/cristi/Desktop/Facultate/PA/Tema/gigiquant/in/data15.in</arg>
-    <arg>/home/cristi/Desktop/Facultate/PA/Tema/gigiquant/out/data15.out</arg>
+    <exe>/home/lexia/PA/project-data-main/gigiquant/test</exe>
+    <arg>/home/lexia/PA/project-data-main/gigiquant/in/data15.in</arg>
+    <arg>/home/lexia/PA/project-data-main/gigiquant/out/data15.out</arg>
   </argv>
 </args>
 
 <status>
   <state>RUNNING</state>
-  <time>00:00:00:00.021 </time>
+  <time>00:00:00:00.068 </time>
 </status>
 
 
 <status>
   <state>FINISHED</state>
-  <time>00:00:00:00.407 </time>
+  <time>00:00:00:01.193 </time>
 </status>
 
 <errorcounts>
