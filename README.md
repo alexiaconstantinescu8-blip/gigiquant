@@ -1,6 +1,18 @@
 # Manager de portofliu GigiQuant
 Descriere
 Acest proiect este conceput ca o serie de 4 interviuri tehnice (plus un bonus) pentru o poziție de manager de portofoliu în cadrul companiei „GigiQuant”. Scopul principal este aplicarea cunoștințelor de structuri de date și algoritmi în rezolvarea unor probleme complexe din domeniul financiar.
+## Cum se compileaza si ruleaza pe checker:
+Proiectul folosește un Makefile pentru automatizarea procesului de compilare.
+1. Compilare
+```
+Bash
+make
+```
+2. Executie
+```
+Bash
+/.checker2 -i
+```
 ## Task1
 ### Descriere
 Scopul acestui prim task este implementarea calculului indicatorului Sharpe Ratio folosind structuri de date de tip listă simplu înlănțuită.
@@ -14,4 +26,75 @@ Scopul acestui prim task este implementarea calculului indicatorului Sharpe Rati
     - Sharpe Ratio
 - **Output** : Salvează rezultatele (randament mediu, volatilitate, Sharpe Ratio) într-un fișier de ieșire, trunchiate la 3 zecimale.
 ### Structura Date:
+Structura listei înlănțuite:
+```c
+struct elem
+{
+    double valoare;
+    double randament;
+    struct elem* next;
+
+};
+```
+### INPUT/OUTPUT
+- Input(format)
+    - Prima linie:numarul total de observatii(N)
+    - Linii urmatoare: valorile preturilor la fiecare moment de timp.
+- Output:
+    - Linia1:Randament mediu
+    - Linia2:Volatilitatea
+    - Linia3:Sharpe Ratio
+### Parti de cod :
+- Pentru calcularea randament mediu:
+```c
+void randament_mediu(double *rand_mediu, node *caplista, int n)
+{
+    int i;
+    double suma = 0;
+    caplista = caplista->next;//primu randament e 0
+    for (i = 1; i < n ; i++)
+    {
+        suma = caplista->randament + suma;//fac suma elementelor
+        caplista = caplista->next;
+    }
+    *rand_mediu = (suma / (n - 1)) ;//nu-l iau pe primu la  calcul ,daia e n-1
+}
+```
+- Pentru Volatilitate :
+```c
+void volatilitate(double *volat, double rand_mediu, node *caplista, int n)
+{
+    int i;
+    double suma = 0;
+    caplista = caplista->next;//primu randament e 0,deci mergem la urm arg
+    for (i = 1; i < n ; i++)
+    {
+        suma += (caplista->randament - rand_mediu) * (caplista->randament - rand_mediu);//fac suma patratelor
+        caplista = caplista->next;//trec la urm element
+    }
+    if (n > 1)
+    {
+        *volat = sqrt(suma / (n - 1));
+    }
+    else
+    {
+        *volat = 0;//daca n e mai mic ca 1 da ori numar complex ori cazu 1/0
+    }
+}
+```
+- Pentru calcularea sharp ratio :
+```c
+void calculare_sharp_ratio(double *sharp_ratio, double rand_mediu, double volat, double rand_frisc)
+{
+    if (volat != 0)
+    {
+        *sharp_ratio = (rand_mediu - rand_frisc) / volat;//chiar daca randamentu fara risc e 0 in problema,si in teorie absenta lui nu afecteaza cu nmc in acest caz,am zis sa respect formula,desi variabila o sa ocupa o parte din memorie,nu o sa ocupe foarte mult,si aceia va fi eliberata cand se termina programu
+    }
+    else
+    {
+        *sharp_ratio = 0;//daca volat e 0 da cazu 1/0 care tinde spre infint
+    }
+}
+```
+
 
