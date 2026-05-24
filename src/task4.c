@@ -107,6 +107,7 @@ Graph* populare_graf(int N,float preturi[], Graph *g, float d, int argc, char *a
             }
             aux=aux->next;
         }
+        //daca nu exista 
         if( gasit == 0)
         {
             nod_graf* nod_nou=(nod_graf*)malloc(sizeof(nod_graf));
@@ -117,14 +118,14 @@ Graph* populare_graf(int N,float preturi[], Graph *g, float d, int argc, char *a
             g->matrice[poz1] = nod_nou;
         }
     }
-    //aflare numitor si numarator
+    //aflare numitor 
     for(int i = 0 ; i < g->V  ; i++)
     {
         int nr_muchii = 0;
         nod_graf *aux = g->matrice[i];
         while(aux != NULL)
         {
-            nr_muchii += aux->numarator;
+            nr_muchii += aux->numarator; 
             aux=aux->next;
         }
         aux = g->matrice[i];
@@ -132,9 +133,9 @@ Graph* populare_graf(int N,float preturi[], Graph *g, float d, int argc, char *a
         {
              if(nr_muchii == 0)
             {
-               aux->numitor= 1; 
+               aux->numitor= 1;
             }
-           else aux->numitor = nr_muchii;
+           else aux->numitor = nr_muchii;//numitor=numara cazuri posibile=toate muchiile
             aux=aux->next;
         }
 
@@ -291,3 +292,5 @@ void probabilitati(int argc, char *argv[])
     free(preturi);
     eliberare_graf(g);
 }
+//Metoda 2:matruce de adiacenta
+//

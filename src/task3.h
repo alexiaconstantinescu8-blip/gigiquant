@@ -22,7 +22,9 @@ void eliberare_arbore (arbore *root);
 void eliberare_drumuri (char *drum[] , int nr_act );
 void nr_zile(int argc,const char *argv[] , int* nr_randuri);
 void citire_actiuni(int argc , char *argv[] , actiune** aux);
-void populare_arbore( actiune **aux , arbore **tree , int argc , char *argv[] , char** drum);
+//void populare_arbore( actiune **aux , arbore **tree , int argc , char *argv[]);
 void afisare_oglindit ( int argc , char *argv[]);
+void populare_arbore( actiune **aux , arbore **tree , int argc , char *argv[] , char** drum);
+
 
 

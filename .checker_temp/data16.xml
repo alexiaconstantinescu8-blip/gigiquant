@@ -12,8 +12,8 @@
   <line>Command: /home/lexia/PA/project-data-main/gigiquant/test /home/lexia/PA/project-data-main/gigiquant/in/data16.in /home/lexia/PA/project-data-main/gigiquant/out/data16.out</line>
 </preamble>
 
-<pid>7377</pid>
-<ppid>7333</ppid>
+<pid>7948</pid>
+<ppid>7933</ppid>
 <tool>memcheck</tool>
 
 <args>
@@ -32,13 +32,13 @@
 
 <status>
   <state>RUNNING</state>
-  <time>00:00:00:00.083 </time>
+  <time>00:00:00:00.077 </time>
 </status>
 
 
 <status>
   <state>FINISHED</state>
-  <time>00:00:00:01.503 </time>
+  <time>00:00:00:02.264 </time>
 </status>
 
 <errorcounts>

@@ -2,16 +2,28 @@
 #include <stdio.h>
 #include <math.h>
 #include <limits.h>
+struct elem_graf
+{
+    int destinatie;
+    int numarator;
+    int numitor;
+    struct elem_graf* next;
+} ;
+typedef struct elem_graf nod_graf;
 typedef struct 
 {
 int V; // nr. varfuri
 int E; // nr. muchii
-int **a;
+nod_graf** matrice;
+} Graph ;
+/*
+typedef struct 
+{
+int V; // nr. varfuri
+int E; // nr. muchii
 int** numitori;
 int** numaratori;
-// daca numarul de varfuri ramane constant :
-// int a[V][V];
-} Graph ;
+} Graph ;*/
 void citire_date (int argc ,const char *argv[],int *N,float *d,int *zile,float *p_start,float *p_target,float preturi[]);
 Graph * creare_graf (int v);
 void eliberare_graf(Graph *g);
