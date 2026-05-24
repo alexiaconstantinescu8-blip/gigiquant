@@ -134,7 +134,7 @@ struct Q
 };
 typedef struct Q oportunitati;
 ```
-![Exemplu input](imagini/task2_input.png)
+![Exemplu input](./imagini/task2_input.png)
 
 
 
