@@ -134,7 +134,72 @@ struct Q
 };
 typedef struct Q oportunitati;
 ```
-![Exemplu input](./imagini/task2_input.png)
+### INPUT/OUTPUT
+- Input(format)
+  Fișier text cu numele piețelor urmate de lista de prețuri.
+- Output:
+  Formatul: ``` ziua <nr> - <diferenta> - <nume_piata> ```
+![Exemplu input](imagini/task2_input.jpg)
+Output:
+``` ziua 2 - 10 - Paris ```
+### Parti de cod :
+-Aflare numar de zile(nr minim elemnte din stiva):
+```c
+int nr_min_stiva(const piata* s1, const piata* s2, const piata* s3)
+{
+    //vedem unde ne oprim,caci nu puteam sa folosim preturi inexistente
+    int mini = s1->top;
+    if (mini > s2->top)
+    { 
+        mini = s2->top;
+    }  
+    if (mini > s3->top)
+    {
+        mini = s3->top;     
+    } 
+    return mini + 1;
+}
+```
+-Umplerea cozii cu oportunitati:
+```c
+void oportunitatile_din_piata(piata* s1, piata* s2, piata* s3, oportunitati* c)
+{
+    int mini = nr_min_stiva(s1, s2, s3);
+    int ziua;
+    float dif_piata;
+    
+    for (ziua = 0; ziua < mini; ziua++)
+    {
+        //o luam invers pt parcurgerea stivei deoarece functioneaza pe principiul first in last out,si ultimul element din ea e prima zi
+        int i1 = s1->top - ziua;
+        int i2 = s2->top - ziua;
+        int i3 = s3->top - ziua;
+        //regula:trebuia ca 2 zile sa fie la fel si una diferita si in coada se adauga diferenta dintre o zi la fel si ziuacare nu seamna
+        //restu cazurilor nu se iau la calcul
+        //ziua+1 ca nu se incepe de la ziua 0
+        if (s1->pret[i1] == s2->pret[i2] && s1->pret[i1] != s3->pret[i3])
+        {
+            dif_piata = s3->pret[i3] - s1->pret[i1];
+            if (dif_piata < 0) dif_piata = dif_piata * (-1);//diferenta tre sa fie pozitiva
+            adaugare_elemente(c, dif_piata, ziua + 1, s3->nume_piata);
+        }
+        if (s1->pret[i1] == s3->pret[i3] && s1->pret[i1] != s2->pret[i2])
+        {
+            dif_piata = s2->pret[i2] - s1->pret[i1];
+            if (dif_piata < 0) dif_piata = dif_piata * (-1);
+            adaugare_elemente(c, dif_piata, ziua + 1, s2->nume_piata);
+        }
+        if (s3->pret[i3] == s2->pret[i2] && s3->pret[i3] != s1->pret[i1])
+        {
+            dif_piata = s1->pret[i1] - s3->pret[i3];
+            if (dif_piata < 0) dif_piata = dif_piata * (-1);
+            adaugare_elemente(c, dif_piata, ziua + 1, s1->nume_piata);
+        }
+    }
+}
+```
+
+
 
 
 
