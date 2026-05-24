@@ -13,3 +13,5 @@ Scopul acestui prim task este implementarea calculului indicatorului Sharpe Rati
     - Volatilitate
     - Sharpe Ratio
 - **Output** : Salvează rezultatele (randament mediu, volatilitate, Sharpe Ratio) într-un fișier de ieșire, trunchiate la 3 zecimale.
+### Structura Date:
+
