@@ -14,7 +14,6 @@ Bash
 /.checker2 -i
 ```
 ## Task1
-### Descriere
 Scopul acestui prim task este implementarea calculului indicatorului Sharpe Ratio folosind structuri de date de tip listă simplu înlănțuită.
 ### Functionalitate
 - **Citirea datelor** : Citește istoricul prețurilor dintr-un fișier de intrare.
@@ -96,5 +95,48 @@ void calculare_sharp_ratio(double *sharp_ratio, double rand_mediu, double volat,
     }
 }
 ```
+- Trunchiere
+  ```c
+  rand_mediu = ((double)((int)(rand_mediu * 1000))) / 1000;//
+    volat = ((double)((int)(volat * 1000))) / 1000;
+    sharp_ratio = ((double)((int)(sharp_ratio * 1000))) / 1000;
+  ```
+## Task2
+Acest task simulează identificarea oportunităților de arbitraj pe trei piețe diferite, folosind stive pentru stocarea prețurilor și o coadă pentru stocarea oportunităților identificate.
+structuri de date de tip listă simplu înlănțuită.
+### Functionalitate
+- Stocare prețuri: Utilizarea a trei stive pentru a menține istoricul cronologic al prețurilor pentru fiecare piață (Londra, Berlin, Paris).
+- Identificare Arbitraj: Implementarea logicii de comparare a prețurilor:
+    - Se identifică zilele în care două prețuri sunt identice și al treilea este diferit.
+    - Se calculează diferența absolută dintre prețul pieței „anomale” și cel al piețelor identice.
+- Managementul Oportunităților: Stocarea rezultatelor într-o coadă (FIFO) pentru a fi procesate/afișate în ordinea descoperirii.
+### Structura Date:
+```c
+struct vector_stiva
+{
+    int top;
+    int capacitate;
+    float *pret;
+    char nume_piata[30];//oras
+};
+typedef struct vector_stiva piata;
+struct lista_coada
+{
+    int zi;
+    float dif_piata;
+    char nume_piata[30];
+    struct lista_coada* next;
+};
+typedef struct lista_coada nod;
+struct Q
+{
+    nod *fata,*spate;
+};
+typedef struct Q oportunitati;
+```
+!(imagini\task2_input.png)
+
+
+
 
 
