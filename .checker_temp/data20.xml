@@ -12,8 +12,8 @@
   <line>Command: /home/lexia/PA/project-data-main/gigiquant/test /home/lexia/PA/project-data-main/gigiquant/in/data20.in /home/lexia/PA/project-data-main/gigiquant/out/data20.out</line>
 </preamble>
 
-<pid>32050</pid>
-<ppid>32019</ppid>
+<pid>16281</pid>
+<ppid>16230</ppid>
 <tool>memcheck</tool>
 
 <args>
@@ -32,7 +32,7 @@
 
 <status>
   <state>RUNNING</state>
-  <time>00:00:00:00.035 </time>
+  <time>00:00:00:00.076 </time>
 </status>
 
 <error>
@@ -42,7 +42,7 @@
   <what>Invalid write of size 4</what>
   <stack>
     <frame>
-      <ip>0x49B95DA</ip>
+      <ip>0x4A7A5DA</ip>
       <obj>/usr/lib/x86_64-linux-gnu/libc.so.6</obj>
       <fn>__vfscanf_internal</fn>
       <dir>./stdio-common/./stdio-common</dir>
@@ -50,7 +50,7 @@
       <line>2538</line>
     </frame>
     <frame>
-      <ip>0x49A7DEE</ip>
+      <ip>0x4A68DEE</ip>
       <obj>/usr/lib/x86_64-linux-gnu/libc.so.6</obj>
       <fn>__isoc99_fscanf</fn>
       <dir>./stdio-common/./stdio-common</dir>
@@ -58,7 +58,7 @@
       <line>30</line>
     </frame>
     <frame>
-      <ip>0x10A7E7</ip>
+      <ip>0x10AACD</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>citire_date</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -66,7 +66,7 @@
       <line>15</line>
     </frame>
     <frame>
-      <ip>0x10AE98</ip>
+      <ip>0x10B17E</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -74,15 +74,15 @@
       <line>188</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
-  <auxwhat>Address 0x4b5eec8 is 0 bytes after a block of size 40 alloc'd</auxwhat>
+  <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
   <stack>
     <frame>
       <ip>0x4846828</ip>
@@ -90,7 +90,7 @@
       <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x10AE51</ip>
+      <ip>0x10B137</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -98,12 +98,12 @@
       <line>186</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
 </error>
@@ -115,7 +115,7 @@
   <what>Invalid write of size 4</what>
   <stack>
     <frame>
-      <ip>0x49B95DA</ip>
+      <ip>0x4A7A5DA</ip>
       <obj>/usr/lib/x86_64-linux-gnu/libc.so.6</obj>
       <fn>__vfscanf_internal</fn>
       <dir>./stdio-common/./stdio-common</dir>
@@ -123,7 +123,7 @@
       <line>2538</line>
     </frame>
     <frame>
-      <ip>0x49A7DEE</ip>
+      <ip>0x4A68DEE</ip>
       <obj>/usr/lib/x86_64-linux-gnu/libc.so.6</obj>
       <fn>__isoc99_fscanf</fn>
       <dir>./stdio-common/./stdio-common</dir>
@@ -131,7 +131,7 @@
       <line>30</line>
     </frame>
     <frame>
-      <ip>0x10A7E7</ip>
+      <ip>0x10AACD</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>citire_date</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -139,7 +139,7 @@
       <line>15</line>
     </frame>
     <frame>
-      <ip>0x10AA87</ip>
+      <ip>0x10AD6D</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>populare_graf</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -147,7 +147,7 @@
       <line>79</line>
     </frame>
     <frame>
-      <ip>0x10AEC8</ip>
+      <ip>0x10B1AE</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -155,15 +155,15 @@
       <line>189</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
-  <auxwhat>Address 0x4b5eec8 is 0 bytes after a block of size 40 alloc'd</auxwhat>
+  <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
   <stack>
     <frame>
       <ip>0x4846828</ip>
@@ -171,7 +171,7 @@
       <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x10AE51</ip>
+      <ip>0x10B137</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -179,12 +179,12 @@
       <line>186</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
 </error>
@@ -196,7 +196,7 @@
   <what>Invalid read of size 4</what>
   <stack>
     <frame>
-      <ip>0x10A96D</ip>
+      <ip>0x10AC53</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>aflare_max</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -204,7 +204,7 @@
       <line>64</line>
     </frame>
     <frame>
-      <ip>0x10AAA1</ip>
+      <ip>0x10AD87</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>populare_graf</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -212,7 +212,7 @@
       <line>81</line>
     </frame>
     <frame>
-      <ip>0x10AEC8</ip>
+      <ip>0x10B1AE</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -220,15 +220,15 @@
       <line>189</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
-  <auxwhat>Address 0x4b5eec8 is 0 bytes after a block of size 40 alloc'd</auxwhat>
+  <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
   <stack>
     <frame>
       <ip>0x4846828</ip>
@@ -236,7 +236,7 @@
       <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x10AE51</ip>
+      <ip>0x10B137</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -244,12 +244,12 @@
       <line>186</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
 </error>
@@ -261,7 +261,7 @@
   <what>Invalid read of size 4</what>
   <stack>
     <frame>
-      <ip>0x10A9EE</ip>
+      <ip>0x10ACD4</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>aflare_minim</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -269,7 +269,7 @@
       <line>72</line>
     </frame>
     <frame>
-      <ip>0x10AAB7</ip>
+      <ip>0x10AD9D</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>populare_graf</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -277,7 +277,7 @@
       <line>82</line>
     </frame>
     <frame>
-      <ip>0x10AEC8</ip>
+      <ip>0x10B1AE</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -285,15 +285,15 @@
       <line>189</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
-  <auxwhat>Address 0x4b5eec8 is 0 bytes after a block of size 40 alloc'd</auxwhat>
+  <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
   <stack>
     <frame>
       <ip>0x4846828</ip>
@@ -301,7 +301,7 @@
       <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x10AE51</ip>
+      <ip>0x10B137</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -309,12 +309,12 @@
       <line>186</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
 </error>
@@ -326,7 +326,7 @@
   <what>Invalid read of size 4</what>
   <stack>
     <frame>
-      <ip>0x10AA0B</ip>
+      <ip>0x10ACF1</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>aflare_minim</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -334,7 +334,7 @@
       <line>72</line>
     </frame>
     <frame>
-      <ip>0x10AAB7</ip>
+      <ip>0x10AD9D</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>populare_graf</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -342,7 +342,7 @@
       <line>82</line>
     </frame>
     <frame>
-      <ip>0x10AEC8</ip>
+      <ip>0x10B1AE</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -350,15 +350,15 @@
       <line>189</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
-  <auxwhat>Address 0x4b5eec8 is 0 bytes after a block of size 40 alloc'd</auxwhat>
+  <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
   <stack>
     <frame>
       <ip>0x4846828</ip>
@@ -366,7 +366,7 @@
       <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x10AE51</ip>
+      <ip>0x10B137</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -374,12 +374,12 @@
       <line>186</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
 </error>
@@ -391,7 +391,7 @@
   <what>Invalid read of size 4</what>
   <stack>
     <frame>
-      <ip>0x10ABC4</ip>
+      <ip>0x10AEAA</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>populare_graf</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -399,7 +399,7 @@
       <line>96</line>
     </frame>
     <frame>
-      <ip>0x10AEC8</ip>
+      <ip>0x10B1AE</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -407,15 +407,15 @@
       <line>189</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
-  <auxwhat>Address 0x4b5eec8 is 0 bytes after a block of size 40 alloc'd</auxwhat>
+  <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
   <stack>
     <frame>
       <ip>0x4846828</ip>
@@ -423,7 +423,7 @@
       <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x10AE51</ip>
+      <ip>0x10B137</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -431,12 +431,12 @@
       <line>186</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
 </error>
@@ -448,7 +448,7 @@
   <what>Invalid read of size 4</what>
   <stack>
     <frame>
-      <ip>0x10AB8B</ip>
+      <ip>0x10AE71</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>populare_graf</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -456,7 +456,7 @@
       <line>95</line>
     </frame>
     <frame>
-      <ip>0x10AEC8</ip>
+      <ip>0x10B1AE</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -464,15 +464,15 @@
       <line>189</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
-  <auxwhat>Address 0x4b5eec8 is 0 bytes after a block of size 40 alloc'd</auxwhat>
+  <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
   <stack>
     <frame>
       <ip>0x4846828</ip>
@@ -480,7 +480,7 @@
       <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x10AE51</ip>
+      <ip>0x10B137</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -488,12 +488,12 @@
       <line>186</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
 </error>
@@ -505,7 +505,7 @@
   <what>Invalid read of size 4</what>
   <stack>
     <frame>
-      <ip>0x10A9EE</ip>
+      <ip>0x10ACD4</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>aflare_minim</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -513,7 +513,7 @@
       <line>72</line>
     </frame>
     <frame>
-      <ip>0x10AF4C</ip>
+      <ip>0x10B232</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -521,15 +521,15 @@
       <line>195</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
-  <auxwhat>Address 0x4b5eec8 is 0 bytes after a block of size 40 alloc'd</auxwhat>
+  <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
   <stack>
     <frame>
       <ip>0x4846828</ip>
@@ -537,7 +537,7 @@
       <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x10AE51</ip>
+      <ip>0x10B137</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -545,12 +545,12 @@
       <line>186</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
 </error>
@@ -562,7 +562,7 @@
   <what>Invalid read of size 4</what>
   <stack>
     <frame>
-      <ip>0x10AA0B</ip>
+      <ip>0x10ACF1</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>aflare_minim</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -570,7 +570,7 @@
       <line>72</line>
     </frame>
     <frame>
-      <ip>0x10AF4C</ip>
+      <ip>0x10B232</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -578,15 +578,15 @@
       <line>195</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
-  <auxwhat>Address 0x4b5eec8 is 0 bytes after a block of size 40 alloc'd</auxwhat>
+  <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
   <stack>
     <frame>
       <ip>0x4846828</ip>
@@ -594,7 +594,7 @@
       <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x10AE51</ip>
+      <ip>0x10B137</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
@@ -602,12 +602,12 @@
       <line>186</line>
     </frame>
     <frame>
-      <ip>0x1097DC</ip>
+      <ip>0x10993B</ip>
       <obj>/home/lexia/PA/project-data-main/gigiquant/test</obj>
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>30</line>
+      <line>31</line>
     </frame>
   </stack>
 </error>
@@ -615,7 +615,7 @@
 
 <status>
   <state>FINISHED</state>
-  <time>00:00:00:01.170 </time>
+  <time>00:00:00:01.885 </time>
 </status>
 
 <errorcounts>

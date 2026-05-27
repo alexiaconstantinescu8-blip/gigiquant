@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -g -std=c11 -Wno-incompatible-pointer-types
-LDFLAGS = -lm
+LDFLAGS = -lm -lcurl
 
 BIN=test
 
@@ -8,18 +8,20 @@ BUILD_DIR = ./bin
 SOURCE_DIR = ./src
 SOURCE_DIRS = $(shell find $(SOURCE_DIR) -type d)
 
-SOURCES := $(shell find $(SOURCE_DIR) -name '*.c')
+# AICI E SECRETUL: luăm sursele din src, și adăugăm cJSON.c manual din folderul curent
+SOURCES := $(shell find $(SOURCE_DIR) -name '*.c') cJSON.c
 OBJECTS := $(SOURCES:%.c=%.o)
 
-vpath %.c $(SOURCE_DIRS)
+# Adăugăm '.' (folderul curent) ca path de căutare pentru fișiere .c
+vpath %.c $(SOURCE_DIRS) .
 
 all: $(BIN)
 
 $(BIN): $(notdir $(OBJECTS))
-	$(CC) $(CFLAGS) $(addprefix, -I, $(SOURCE_DIRS)) $(addprefix $(BUILD_DIR)/, $^) -o $(BIN) $(LDFLAGS)
+	$(CC) $(CFLAGS) $(addprefix -I, $(SOURCE_DIRS)) $(addprefix $(BUILD_DIR)/, $^) -o $(BIN) $(LDFLAGS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(LDFLAGS) $(addprefix, -I, $(SOURCE_DIRS)) -c $< -o $(BUILD_DIR)/$@ 
+	$(CC) $(CFLAGS) $(addprefix -I, $(SOURCE_DIRS)) -c $< -o $(BUILD_DIR)/$@ 
 
 clean:
 	@rm -f $(BUILD_DIR)/*.o $(BIN)

@@ -96,7 +96,7 @@ Graph* populare_graf(int N,float preturi[], Graph *g, float d, int argc, char *a
         int poz2 = (int)((preturi[i+1] - pret_minim) / d);
         nod_graf *aux = g->matrice[poz1];
         int gasit = 0;
-        //Verificam daca muchia deja exista
+        //Punem muchia si o punem ca exista
         while(aux != NULL)
         {
             if(aux->destinatie == poz2)
