@@ -105,6 +105,9 @@ void calculare_sharp_ratio(double *sharp_ratio, double rand_mediu, double volat,
     volat = ((double)((int)(volat * 1000))) / 1000;
     sharp_ratio = ((double)((int)(sharp_ratio * 1000))) / 1000;
   ```
+### Observatie && Loc de imbunatatirir
+ La fnct de creare/populare lista am folosit 3 noduri,1 in care retin capu ,unu pt care citesc primul elment si fac conxiunile , unu pt citirea datelor
+ Trebuia sa fac o fct de creeare a nodurilor si dupa sa incep sa citesc datele si restul
 ## Task2
 Acest task simulează identificarea oportunităților de arbitraj pe trei piețe diferite, folosind stive pentru stocarea prețurilor și o coadă pentru stocarea oportunităților identificate.
 structuri de date de tip listă simplu înlănțuită.
