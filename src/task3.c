@@ -8,7 +8,7 @@ actiune* nou_nod(const char* denumire)
         exit(1);
     }
     node->next = NULL;
-    node->pret = (float*)malloc(1000*sizeof(float));
+    node->pret = (float*)malloc(1000*sizeof(float));//am alocat spatiu separat pentru pret
     strcpy(node->nume,denumire);
     return node ;
 }
@@ -27,12 +27,14 @@ arbore* nod_arbore(int h)
 }
 void adauga_in_arbore( arbore *nod ,const char *denumire )
 {
-    actiune* new_node = nou_nod(denumire);
+    //facem un nod nou pentru arbore folosind actiunile citite
+    actiune* new_node = nou_nod(denumire); //pe noi ne intereaza numele actiunii ,nu pretul,daia nu e si asta salvat aici
     new_node->next = nod->act;
     nod->act = new_node;
 }
 void eliberare_actiuni (actiune *aux[] , int nr_act )
 {
+    //actiunea e o matrice ,trebuie eliberata element cu element ,adc parcursa
     for(int i = 0 ; i < nr_act ; i++)
     {
         if(aux[i] != NULL)
@@ -50,6 +52,7 @@ void eliberare_arbore (arbore *root)
     if(root == NULL) return;
     eliberare_arbore(root->left);
     eliberare_arbore(root->right);
+    //actiune trebuie eliberata element cu element,adc parcursa , ca altfel nu eliberam toata memorie
     actiune *actiune_curenta = root->act;
     while (actiune_curenta != NULL)
     {
@@ -66,6 +69,7 @@ void eliberare_arbore (arbore *root)
 //Metoda 1 Vectori de drumuri
 void eliberare_drumuri (char *drum[] , int nr_act )
 {
+    //trb eliberat carcater cu caracter,aprcurs, pentru a ne asigura ca am eliberat tot
     for(int i = 0 ; i < nr_act ; i++)
     {
         if(drum[i] != NULL)
@@ -74,26 +78,33 @@ void eliberare_drumuri (char *drum[] , int nr_act )
         }
     }
 }
-
+//nr de zile,preturi ,reprezinta nr de randuri -1 caci primul rand sunt numel companiilor
 void nr_zile(int argc,const char *argv[] , int* nr_randuri)//nr zile == nr randuri
 {
      FILE *fi = fopen(argv[1], "rt");
      if (fi == NULL) exit(1);
      *nr_randuri = 0;
      char enter;
+     // Variabila 'ultim_enter' actioneaza ca un "steag" (flag) pentru a tine minte daca ultimul caracter citit a fost sau nu un '\n'
      int ultim_enter=0;
+     // Citim fisierul caracter cu caracter pana cand ajungem la final
      while((enter=fgetc(fi)) != EOF)
      {
+        // Daca gasim un caracter de tip newline (Enter), inseamna ca s-a terminat un rand
         if( enter == '\n')
         {
-            (*nr_randuri)++;
-            ultim_enter=1;
+            (*nr_randuri)++; // Crestem numarul de randuri
+            ultim_enter=1; // Marcam faptul ca am gasit un Enter
         }
         else
         {
+            // Daca citim orice alt caracter (litera, cifra, spatiu),setam flag-ul pe 0, deoarece randul curent inca se scrie (nu s-a terminat)
             ultim_enter=0;
         }
      }
+     // Daca fisierul s-a terminat, dar ultimul caracter NU a fost un Enter (ultim_enter == 0),
+     // inseamna ca mai exista un rand de text pe care while-ul l-a citit, dar nu l-a numarat 
+     // (pentru ca nu a intalnit '\n' la finalul lui). Trebuie sa il adaugam manual.
      if(ultim_enter == 0)
      {
         (*nr_randuri)++;
@@ -188,15 +199,17 @@ void afisare_oglindit ( int argc , char *argv[])
     nr_tzile = nr_tzile-1;
     int nr_act=10;
     int ok;
-    int amafisat_primu = 0; //dupa prima afisare il fac 1
+    int amafisat_primu = 0; //dupa prima afisare il fac 1 ,ca sa nu mi se mai puna un enter in plus
+
     for(int j1 = 0 ; j1 < nr_act-1 ; j1 ++)
     {
-        for(int j2 = j1+1 ; j2 < nr_act ; j2 ++)
+        for(int j2 = j1+1 ; j2 < nr_act ; j2 ++) //ne asiguram ca afisam doar o data o pereche
         {
             ok=1;
-            for (int carcacter=0 ;drum[j1][carcacter] != '\0' && drum[j2][carcacter]; carcacter++ )
+            //ne asiguram caracterele nu s goale
+            for (int carcacter=0 ;drum[j1][carcacter] != '\0' && drum[j2][carcacter] != '\0'; carcacter++ )
             {
-                if(drum[j1][carcacter] == drum[j2][carcacter])
+                if(drum[j1][carcacter] == drum[j2][carcacter])//parcurgem rand pe rand si daca gasim 1 la fel inseamna ca nu s oglinidite
                 {
                     ok = 0;
                     break;
@@ -207,7 +220,7 @@ void afisare_oglindit ( int argc , char *argv[])
                 if (amafisat_primu == 0) 
                 {
                     fprintf(fo,"%s-%s", aux[j1]->nume , aux[j2]->nume);
-                     amafisat_primu = 1;
+                     amafisat_primu = 1;//il facem 1 ca sa avem si enteruri 
                 }
                 else
                 {fprintf(fo,"\n%s-%s", aux[j1]->nume , aux[j2]->nume);}

@@ -4,7 +4,8 @@
 #include "task4.h"
 double* get_open_prices(const char* companie, const char* interval, const char* pana_unde, int *nr);
 int main(int argc , char *argv[])
-{    
+{    //pt fiecare task m am asigurat ca citeste si scrie unde trebuie
+    //task 1
     if ( (strstr(argv[1], "data1") && strstr(argv[1], "data10") == NULL && strstr(argv[1], "data11") == NULL && strstr(argv[1], "data12") == NULL && strstr(argv[1], "data13") == NULL && strstr(argv[1], "data14") == NULL && strstr(argv[1], "data15") == NULL)|| (strstr(argv[1], "data2")) || (strstr(argv[1], "data3")) || (strstr(argv[1], "data4")) || (strstr(argv[1], "data5")))
         {
             afisare_randament_volatilitate_sharp_ratio(argc,argv);
@@ -34,6 +35,7 @@ int main(int argc , char *argv[])
     // argc > 1 se asigura ca utilizatorul a scris ceva după numele programului
     if (argc > 1 && strstr(argv[1], "bonus")) 
 {
+    //aflarea pretul minim si maxim pe o luna,pretul fiind pe zi
    int nr_de_zile = 0;
    double * preturi = get_open_prices("GOOGL", "1d", "1mo", &nr_de_zile);
    if(preturi != NULL && nr_de_zile > 0)

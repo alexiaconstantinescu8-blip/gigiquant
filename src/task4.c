@@ -89,50 +89,55 @@ Graph* populare_graf(int N,float preturi[], Graph *g, float d, int argc, char *a
     while (p_target < pret_minim) pret_minim=(int)p_target;
     int v = (int)((maxim - pret_minim) / d) + 1;
     g = creare_graf(v);
-    //Punerea muchiilor
+    //Punerea muchiilor si numararea tranzitiilor
     for(int i = 0 ; i < N-1 ; i++)
     {
-        int poz1 = (int)((preturi[i] - pret_minim) / d);
-        int poz2 = (int)((preturi[i+1] - pret_minim) / d);
+        //Tranformarea preturilor in noduri
+        int poz1 = (int)((preturi[i] - pret_minim) / d); //nod plecare
+        int poz2 = (int)((preturi[i+1] - pret_minim) / d); //nod destinatie
         nod_graf *aux = g->matrice[poz1];
         int gasit = 0;
-        //Punem muchia si o punem ca exista
+        //Parcurgem vecinii nodului de plecare pentru a vedea daca am mai mers pe aici
         while(aux != NULL)
         {
             if(aux->destinatie == poz2)
             {
+                //tranzitia a avut loc in trecut ,crestem frecventa(numaratorul)
                 aux->numarator++;
                 gasit=1;
                 break;
             }
             aux=aux->next;
         }
-        //daca nu exista 
+        //daca nu exista muchia setam noi datele initiale
         if( gasit == 0)
         {
             nod_graf* nod_nou=(nod_graf*)malloc(sizeof(nod_graf));
             nod_nou->destinatie = poz2;
-            nod_nou->numarator = 1;
-            nod_nou->numitor = 1;
+            nod_nou->numarator = 1; //prima data cand observam aceasta tranzitie
+            nod_nou->numitor = 1; 
             nod_nou->next = g->matrice[poz1];
             g->matrice[poz1] = nod_nou;
         }
     }
-    //aflare numitor 
+    //aflare numarului total de plecari dintr un nod (numitori ,cazuri posibile ,i-> orice nod)
     for(int i = 0 ; i < g->V  ; i++)
     {
         int nr_muchii = 0;
         nod_graf *aux = g->matrice[i];
+        //Calculam suma tuturor tranzitiilor care pleaca din nodul 'i'
         while(aux != NULL)
         {
             nr_muchii += aux->numarator; 
             aux=aux->next;
         }
+        //Actualizam numitorul pentru fiecare muchie care pleaca din 'i'
         aux = g->matrice[i];
         while(aux != NULL)
         {
              if(nr_muchii == 0)
             {
+                // Setam numitorul comun pentru toate rutele care pleaca din acest nod
                aux->numitor= 1;
             }
            else aux->numitor = nr_muchii;//numitor=numara cazuri posibile=toate muchiile
@@ -197,6 +202,7 @@ void probabilitati(int argc, char *argv[])
     int pret_minim = (int)minim;
     while (p_start < pret_minim) pret_minim=(int)p_start;
     while (p_target < pret_minim) pret_minim=(int)p_target;
+     // inintializam numaratori si numitorii
     for(int i = 0; i < g->V; i++) {
         numarator_curent[i] = 0;
         numitor_curent[i] = 1;
@@ -248,10 +254,15 @@ void probabilitati(int argc, char *argv[])
                 {
                     int j = vecin->destinatie;
                         //regula de baza : probabilitatea nodului=probabilitatea veche*probabilitatea din graf a lui(cea initiala)//asta cand intra in el+suma din (probabilitatea initiala(din graf)de la vecin la nodul acesta*probabilitatea vecinului din ziua trecuta)
+                        //P_{nou}(j) = suma(P_{curent}(i)*P_{tranzitie}(i->j))
                         //luam vecini care "intra in el"(adc exista muchie de la vecin la nodul caruia ii fac probabilitatea)
                         //i e vecinu,j e nodul pentru care calculam
                         //luam long lonmg pt ca pot da numere mari
                         long long suma_numarator = numarator_urmator[j] * (numitor_curent[i] * vecin->numitor) + (numarator_curent[i] * vecin->numarator)* numitor_urmator[j];//suma numaratorilor,am adus direct la acelas numitor
+                        //P azi (i)  = numarator_curent[i] / numitor_curent[i];
+                        //P (i->j) = vecin->numarator / vecin->numitor //ce e in graf adc
+                        // P vechi (j) = numarator_urmator[j]/numitor_urmator[j]
+                        // P nou (j) = P vechi(j)+P azi * P (i->j)
                         long long numitor_probab = numitor_urmator[j] * (numitor_curent[i] * vecin->numitor);//aducem la acelas numitor
                         long long simplificare = cmmdc(suma_numarator, numitor_probab);//pt aduce la o forma ireductibila
                         numarator_urmator[j] = suma_numarator / simplificare;

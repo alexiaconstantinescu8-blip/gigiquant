@@ -40,6 +40,7 @@ void push(piata *s, float x)
     if (isFull(s)) crestere_capacitatea(s);
     s->pret[++s->top] = x;
 }
+//fct care nu s date de la curs
 void citire_stive(piata* s1 , piata* s2,piata* s3,int argc,const char *argv[])
 { 
     FILE *fi = fopen(argv[1], "rt");
@@ -75,7 +76,9 @@ int nr_min_stiva(const piata* s1, const piata* s2, const piata* s3)
         mini = s3->top;     
     } 
     return mini + 1;
+    //aflam de fapt nr de zile
 }
+//data de la curs
 oportunitati* creaaza_coada()
 {
     oportunitati *c;
@@ -84,6 +87,7 @@ oportunitati* creaaza_coada()
     c->fata = c->spate = NULL;
     return c;
 }
+//adaugam elemente in coada ,zi,diferente ,numele pietei
 void adaugare_elemente(oportunitati* q, float dif_piata, int ziua, const char nume_p[])
 {
     nod *newNode = (nod*) malloc(sizeof(nod));
@@ -102,6 +106,7 @@ void adaugare_elemente(oportunitati* q, float dif_piata, int ziua, const char nu
     }
     if (q->fata == NULL) q->fata = q->spate;
 }
+//de la curs date
 int isEmpty_coada( const oportunitati *q)
 {
     return (q->fata == NULL); 
@@ -158,17 +163,19 @@ void afisare_coada(piata* s1, piata* s2, piata* s3, oportunitati* c, int argc,co
 {
     FILE *fo = fopen(argv[2], "wt");
     if (fo == NULL) exit(1);
+    //daca nu avem fata e clar ca nu e nmc in ea
     if (c->fata == NULL)
     {
         printf("coada e goala");
     }
-    nod* elem_coada = c->fata;
+    nod* elem_coada = c->fata;//parcurgem elementele din coada
     while (elem_coada != NULL)
     {
+        //luam doar 2 zecimale ,ca asa apare in ref 
         fprintf(fo, "ziua %d - %.2f - %s\n", elem_coada->zi, elem_coada->dif_piata, elem_coada->nume_piata);
         elem_coada = elem_coada->next;
     }
-    
+    //eliberam memoria
     stergere_coada(c);
     stergere_stiva(&s1);
     stergere_stiva(&s2);

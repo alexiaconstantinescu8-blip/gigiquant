@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+//curs pclp
+//trebuie facut separata o functie de creare a nodurilor
 node* crearelista_populare(int *n, int argc,const char *argv[])
 {   
      FILE *fi = fopen(argv[1], "rt");
@@ -69,6 +71,7 @@ void volatilitate(double *volat, double rand_mediu, node *caplista, int n)
 
 void calculare_sharp_ratio(double *sharp_ratio, double rand_mediu, double volat, double rand_frisc)
 {
+    //
     if (volat != 0)
     {
         *sharp_ratio = (rand_mediu - rand_frisc) / volat;//chiar daca randamentu fara risc e 0 in problema,si in teorie absenta lui nu afecteaza cu nmc in acest caz,am zis sa respect formula,desi variabila o sa ocupa o parte din memorie,nu o sa ocupe foarte mult,si aceia va fi eliberata cand se termina programu
