@@ -3,14 +3,16 @@ Descriere
 Acest proiect este conceput ca o serie de 4 interviuri tehnice (plus un bonus) pentru o poziție de manager de portofoliu în cadrul companiei „GigiQuant”. Scopul principal este aplicarea cunoștințelor de structuri de date și algoritmi în rezolvarea unor probleme complexe din domeniul financiar.
 ## Cum se compileaza si ruleaza pe checker:
 Proiectul folosește un Makefile pentru automatizarea procesului de compilare.
-1. Compilare
+1. Compilare 
 ```
-Bash
 make
 ```
-2. Executie
+2. Executie task bonus
 ```
-Bash
+   ./test bonus
+```
+3. Executie
+```
 /.checker2 -i
 ```
 ## Memorie
@@ -482,12 +484,15 @@ nod_graf** matrice;
         }
   }
   ```
-### Observatie && Loc de imbunatatirir
+### Observatie && Loc de imbunatatiri
 - In cod se gaseste o garficul si cu matrice de adiacenta
 - Cred ca se putea face cu stive in loc de 4 vectori la calcularaea probabilitati
 - Poate era mai bine cu un char decat cu 2 matrici de numitor,respectiv numarator
 - Pentru a evita erorile de precizie ale tipului float în operații repetate, am utilizat long long pentru numărător și numitor.
 - Probabilitatea nu este calculată prin ridicarea matricei la putere, ci prin simularea parcurgerii grafului zi cu zi, ceea ce asigură o precizie mai bună în contexte de date reale.
+##Task bonus
+Pentru cerința bonus, am extins funcționalitatea programului aducându-l în lumea reală. Am trecut de la citirea prețurilor din fișiere text statice la preluarea dinamică a datelor financiare direct de pe internet.
+In programul meu ia pt compania "GOOGL" preturile si imi afiseaza pretul maxim si minim
 
   
 
