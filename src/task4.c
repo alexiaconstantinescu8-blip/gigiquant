@@ -261,9 +261,9 @@ void probabilitati(int argc, char *argv[])
                         long long suma_numarator = numarator_urmator[j] * (numitor_curent[i] * vecin->numitor) + (numarator_curent[i] * vecin->numarator)* numitor_urmator[j];//suma numaratorilor,am adus direct la acelas numitor
                         //P azi (i)  = numarator_curent[i] / numitor_curent[i];
                         //P (i->j) = vecin->numarator / vecin->numitor //ce e in graf adc
-                        // P vechi (j) = numarator_urmator[j]/numitor_urmator[j]
-                        // P nou (j) = P vechi(j)+P azi * P (i->j)
-                        long long numitor_probab = numitor_urmator[j] * (numitor_curent[i] * vecin->numitor);//aducem la acelas numitor
+                        // P vechi (j) = numarator_urmator[j]/numitor_urmator[j] (asta ca sa facem suma din toti vecinii) //suma stransa pana acu
+                        // P nou (j) = P vechi(j)+P azi i * P (i->j)
+                        long long numitor_probab = numitor_urmator[j] * (numitor_curent[i] * vecin->numitor) ;//aducem la acelas numitor
                         long long simplificare = cmmdc(suma_numarator, numitor_probab);//pt aduce la o forma ireductibila
                         numarator_urmator[j] = suma_numarator / simplificare;
                         numitor_urmator[j] = numitor_probab / simplificare;
