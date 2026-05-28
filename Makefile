@@ -8,7 +8,6 @@ BUILD_DIR = ./bin
 SOURCE_DIR = ./src
 SOURCE_DIRS = $(shell find $(SOURCE_DIR) -type d)
 
-# AICI E SECRETUL: luăm sursele din src, și adăugăm cJSON.c manual din folderul curent
 SOURCES := $(shell find $(SOURCE_DIR) -name '*.c') cJSON.c
 OBJECTS := $(SOURCES:%.c=%.o)
 

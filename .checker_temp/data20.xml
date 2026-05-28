@@ -12,8 +12,8 @@
   <line>Command: /home/lexia/PA/project-data-main/gigiquant/test /home/lexia/PA/project-data-main/gigiquant/in/data20.in /home/lexia/PA/project-data-main/gigiquant/out/data20.out</line>
 </preamble>
 
-<pid>16281</pid>
-<ppid>16230</ppid>
+<pid>1947</pid>
+<ppid>1900</ppid>
 <tool>memcheck</tool>
 
 <args>
@@ -32,7 +32,7 @@
 
 <status>
   <state>RUNNING</state>
-  <time>00:00:00:00.076 </time>
+  <time>00:00:00:00.048 </time>
 </status>
 
 <error>
@@ -71,7 +71,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>188</line>
+      <line>193</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -79,7 +79,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
   <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
@@ -95,7 +95,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>186</line>
+      <line>191</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -103,7 +103,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
 </error>
@@ -152,7 +152,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>189</line>
+      <line>194</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -160,7 +160,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
   <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
@@ -176,7 +176,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>186</line>
+      <line>191</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -184,7 +184,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
 </error>
@@ -217,7 +217,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>189</line>
+      <line>194</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -225,7 +225,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
   <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
@@ -241,7 +241,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>186</line>
+      <line>191</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -249,7 +249,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
 </error>
@@ -282,7 +282,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>189</line>
+      <line>194</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -290,7 +290,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
   <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
@@ -306,7 +306,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>186</line>
+      <line>191</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -314,7 +314,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
 </error>
@@ -347,7 +347,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>189</line>
+      <line>194</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -355,7 +355,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
   <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
@@ -371,7 +371,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>186</line>
+      <line>191</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -379,7 +379,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
 </error>
@@ -396,7 +396,7 @@
       <fn>populare_graf</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>96</line>
+      <line>97</line>
     </frame>
     <frame>
       <ip>0x10B1AE</ip>
@@ -404,7 +404,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>189</line>
+      <line>194</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -412,7 +412,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
   <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
@@ -428,7 +428,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>186</line>
+      <line>191</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -436,7 +436,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
 </error>
@@ -453,7 +453,7 @@
       <fn>populare_graf</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>95</line>
+      <line>96</line>
     </frame>
     <frame>
       <ip>0x10B1AE</ip>
@@ -461,7 +461,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>189</line>
+      <line>194</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -469,7 +469,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
   <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
@@ -485,7 +485,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>186</line>
+      <line>191</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -493,7 +493,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
 </error>
@@ -518,7 +518,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>195</line>
+      <line>200</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -526,7 +526,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
   <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
@@ -542,7 +542,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>186</line>
+      <line>191</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -550,7 +550,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
 </error>
@@ -575,7 +575,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>195</line>
+      <line>200</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -583,7 +583,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
   <auxwhat>Address 0x5ca3e28 is 0 bytes after a block of size 40 alloc'd</auxwhat>
@@ -599,7 +599,7 @@
       <fn>probabilitati</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>task4.c</file>
-      <line>186</line>
+      <line>191</line>
     </frame>
     <frame>
       <ip>0x10993B</ip>
@@ -607,7 +607,7 @@
       <fn>main</fn>
       <dir>/home/lexia/PA/project-data-main/gigiquant/./src</dir>
       <file>tema_interviu.c</file>
-      <line>31</line>
+      <line>32</line>
     </frame>
   </stack>
 </error>
@@ -615,7 +615,7 @@
 
 <status>
   <state>FINISHED</state>
-  <time>00:00:00:01.885 </time>
+  <time>00:00:00:02.556 </time>
 </status>
 
 <errorcounts>
